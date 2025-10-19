@@ -6,7 +6,7 @@ using InteractiveUtils
 
 # ╔═╡ e6c64c80-773b-11ef-2379-bf6609137e69
 md"""
-# Numerik gewöhnlicher Differentialgleichungen
+# Mathematik für Informatiker 1
 
 ### Wintersemester 2025/2026
 ### Johannes Gutenberg-Universität Mainz
@@ -15,7 +15,7 @@ md"""
 
 # ╔═╡ 3bf1c95f-4a14-4a23-ba93-cf9bb26cb41e
 let
-	repo = "2025_NumODE"
+	repo = "2025_MfI1"
 	url = "https://ranocha.de/" * repo * "/"
 
 	notebooks = String[]
