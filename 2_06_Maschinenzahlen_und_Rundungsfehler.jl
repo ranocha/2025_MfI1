@@ -29,7 +29,7 @@ using BFloat16s
 
 # ╔═╡ e6c64c80-773b-11ef-2379-bf6609137e69
 md"""
-# 2.5 Maschinenzahlen und Rundungsfehler
+# 2.6 Maschinenzahlen und Rundungsfehler
 
 In den folgenden Abbildungen ist der Abstand zwischen direkt aufeinander folgenden Maschinenzahlen dargestellt. Konkret ist `eps(x)` dabei der Abstand von `x` zur nächst größeren Maschinenzahl.
 """

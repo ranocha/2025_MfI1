@@ -15,7 +15,7 @@ using BenchmarkTools
 
 # ╔═╡ e6c64c80-773b-11ef-2379-bf6609137e69
 md"""
-# 2.6 Starke und schwache Induktion: Summenformeln
+# 2.3 Starke und schwache Induktion: Summenformeln
 
 Die Gaußsche Summenformel
 
