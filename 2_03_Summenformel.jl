@@ -150,6 +150,28 @@ md"""
 Das sieht schon etwas komplizierter aus, ist aber immer noch ein Polynom in `n` und keine Schleife!
 """
 
+# ╔═╡ 10422232-3e23-45dc-8994-f40d6cbb50ac
+md"""
+## Ohne Compiler
+
+Ohne optimierenden Compiler können solche Verbesserungen typischerweise nicht genutzt werden. In Python 3.14 erhält man bspw.
+
+```python
+>>> import timeit
+>>> 
+>>> timeit.timeit('sum(a)', setup = 'a = range(100)')
+0.22416899999370798
+>>> timeit.timeit('sum(a)', setup = 'a = range(1000)')
+3.4680340829654597
+>>> 
+>>> timeit.timeit('np.sum(a)', setup = 'import numpy as np; a = np.arange(100)')
+0.830736749980133
+>>> timeit.timeit('np.sum(a)', setup = 'import numpy as np; a = np.arange(1000)')
+1.0799170829704963
+```
+
+"""
+
 # ╔═╡ 4340e86a-e0fe-4cfe-9d1a-9bb686cbb2fd
 md"""
 # Appendix
@@ -504,6 +526,7 @@ version = "17.4.0+2"
 # ╠═1dc0c9ca-c638-420a-ab70-654c7f2f0f6a
 # ╠═bc4c1734-192d-4e59-8e10-af2c3e2eac1d
 # ╟─e9ebee2c-f2d3-435f-8300-9bee6f6a581a
+# ╟─10422232-3e23-45dc-8994-f40d6cbb50ac
 # ╟─96351793-9bcc-4376-9c95-b6b42f061ad8
 # ╟─bc148aac-1ef7-4611-b187-72f1255ff05f
 # ╟─92377a23-ac4f-4d5f-9d57-a0a03693307c
