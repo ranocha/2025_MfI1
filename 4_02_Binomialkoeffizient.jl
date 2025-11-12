@@ -41,7 +41,7 @@ using BenchmarkTools
 
 # ╔═╡ e6c64c80-773b-11ef-2379-bf6609137e69
 md"""
-# 3.2 Fakulät und Binomialkoeffizient
+# 4.2 Fakulät und Binomialkoeffizient
 
 Die Fakultät wächst sehr schnell an.
 """

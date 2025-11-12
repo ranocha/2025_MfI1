@@ -27,7 +27,7 @@ end
 
 # ╔═╡ f68c73d7-db26-4928-8782-137f3da2a4d6
 md"""
-# 4.8 Varianz und Standardabweichung
+# 5.8 Varianz und Standardabweichung
 
 Um aus einer gegebenen Stichprobe $x_1, \dots, x_N$ mit $N \ge 2$ Schätzwerte für den Mittelwert und die Varianz zu erhalten, nutzt man das arithmetische Mittel
 

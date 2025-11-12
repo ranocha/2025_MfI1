@@ -26,39 +26,60 @@ end
 
 # ╔═╡ e6c64c80-773b-11ef-2379-bf6609137e69
 md"""
-# 3.5 Bellsche Zahl
+# 5.2 Geburtstagsproblem
 
-Wir haben schon gesehen, dass die Fakultät stark wächst. Hier vergleichen wir
-das Wachstum mit der Bellschen Zahl.
+Wir betrachten das folgende \emph{Geburtstagsproblem}:
+
+> Wie viele Personen müssen sich in einem Raum befinden, damit die
+> Wahrscheinlichkeit, dass mindestens zwei von ihnen am selben Tag
+> Geburtstag haben, mindestens 50% beträgt?
+
+Wir vernachlässigen Schaltjahre und nehmen an, dass jeder Tag im
+Jahr gleichwahrscheinlich als Geburtstag gewählt wird, d.h., wir
+gehen von einer Laplaceverteilung aus.
+
+Die Anzahl aller möglichen Geburtstage von $n$ Personen ist
+
+$$|\Omega| = 365^n.$$
+
+Das Ereignis $A$, dass mindestens zwei Personen am selben Tag
+Geburtstag haben, ist das Komplement des Ereignisses $A^c$, dass
+alle Personen an unterschiedlichen Tagen Geburtstag haben. Die
+Anzahl der Möglichkeiten hierfür ist
+
+$$|A^c|
+=  365 \cdot 364 \cdot 363 \cdots (365 - n + 1)
+= \frac{365!}{(365 - n)!}.$$
+
+Somit ergibt sich für die Wahrscheinlichkeit von $A$:
+
+$$P(A)
+= 1 - P(A^c)
+= 1 - \frac{|A^c|}{|\Omega|}
+= 1 - \frac{365!}{(365 - n)! \cdot 365^n}.$$
+
 """
 
 # ╔═╡ 1834c37b-97de-46cd-935e-6bc093a4717f
 let
-	N = 50
-	
-	factorials = Vector{BigInt}(undef, N + 1)
-	factorials[begin] = 1
-	for n in eachindex(factorials)[begin:(end - 1)]
-		factorials[n + 1] = n * factorials[n]		
-	end
-	
-	bells = Vector{BigInt}(undef, N + 1)
-	bells[begin] = 1
-	for n in eachindex(bells)[begin:(end - 1)]
-		s = zero(eltype(bells))
-		for k in 1:n
-			s += binomial(n - 1, k - 1) * bells[k]
-		end
-		bells[n + 1] = s
+	ns = 1:50
+	probability = map(ns) do n
+		n = big(n)
+		return 1 - factorial(big(365)) / (factorial(365 - n) * 365^n)
 	end
 	
 	fig = Figure()
-	ax = Axis(fig[1, 1]; xlabel = L"n", yscale = log10)
-	scatter!(ax, 0:N, factorials; label = L"n!")
-	scatter!(ax, 0:N, bells; label = L"B_n")
+	ax = Axis(fig[1, 1]; xlabel = L"n", ylabel = L"P(A)")
+	scatter!(ax, ns, probability; label = L"P(A)")
+	scatter!(ax, ns[23], probability[23]; label = L"n = 23")
 	axislegend(ax; position = :lt)
 	fig
 end
+
+# ╔═╡ 0d214abb-7909-45f5-87d3-411680f35e91
+md"""
+Bei $n = 23$ Personen ist diese Wahrscheinlichkeit also schon größer als 50%!
+"""
 
 # ╔═╡ 4340e86a-e0fe-4cfe-9d1a-9bb686cbb2fd
 md"""
@@ -1622,6 +1643,7 @@ version = "4.1.0+0"
 # ╔═╡ Cell order:
 # ╟─e6c64c80-773b-11ef-2379-bf6609137e69
 # ╟─1834c37b-97de-46cd-935e-6bc093a4717f
+# ╟─0d214abb-7909-45f5-87d3-411680f35e91
 # ╟─96351793-9bcc-4376-9c95-b6b42f061ad8
 # ╟─bc148aac-1ef7-4611-b187-72f1255ff05f
 # ╟─92377a23-ac4f-4d5f-9d57-a0a03693307c

@@ -15,7 +15,7 @@ using BenchmarkTools
 
 # ╔═╡ e6c64c80-773b-11ef-2379-bf6609137e69
 md"""
-# 5.6 Kongruenzrechnung
+# 6.6 Kongruenzrechnung
 
 Die Summe der Quadratzahlen ist
 
